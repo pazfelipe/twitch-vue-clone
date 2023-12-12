@@ -1,5 +1,5 @@
-import {iconsPlugin, getIconCollections} from "@egoist/tailwindcss-icons";
-import type {Config} from 'tailwindcss';
+import { iconsPlugin, getIconCollections } from "@egoist/tailwindcss-icons";
+import type { Config } from 'tailwindcss';
 export default {
   theme: {
     extend: {
@@ -22,6 +22,7 @@ export default {
     `./app.config.{js,ts}`
   ],
   plugins: [
+    require("daisyui"),
     iconsPlugin({
       collections: getIconCollections(["mdi", "lucide"]),
     }),
