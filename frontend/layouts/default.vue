@@ -1,5 +1,19 @@
+<template>
+  <div>
+    <input type="checkbox" v-model="isDark" class="checkbox" />
+    <div>
+      <button @click="loginStore.toggleModal()">Open Modal</button>
+    </div>
+    <login v-if="loginStore.isModalOpened" />
+    <NuxtPage class="mx-auto p-4" />
+  </div>
+</template>
+
 <script setup>
 const colorMode = useColorMode()
+import { useLoginStore } from '@/stores/login'
+
+const loginStore = useLoginStore()
 
 const isDark = ref(true)
 
@@ -12,13 +26,6 @@ watch(isDark, () => {
 })
 
 </script>
-
-<template>
-  <div>
-    <input type="checkbox" v-model="isDark" class="checkbox" />
-    <NuxtPage class="mx-auto p-4" />
-  </div>
-</template>
 
 <style lang="scss">
 body {
